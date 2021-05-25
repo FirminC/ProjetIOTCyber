@@ -26,8 +26,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    redirect_to '/welcome', notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
     if @user.update(user_params)
-      if !@user.initialized
+      if !@user.initialized && !params[:password].nil?
         @user.initialized = true;
         @user.save
       end
@@ -38,10 +39,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+    admins = User.where(:admin_permissions => true)
+    if !(admins.length == 1 and @user == admins.last)
+      @user.destroy
+      redirect_to users_path, notice: "User was successfully destroyed."
+    else
+      redirect_to users_path, notice: "Can't remove this user because he is the last admin"
     end
   end
 
