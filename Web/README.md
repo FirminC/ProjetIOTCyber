@@ -9,9 +9,11 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
     - Action cable
     - page admin
     - page tous les camions
-    - gérer les utilisateurs
 
 Implémenter :
     - utilisateur
+    - gérer les utilisateurs
+    - fonction de changement de mot de passe à la premiere connexion
+    - Impossibilité de supprimer le dernier admin
 
 Procédure d'installation :
