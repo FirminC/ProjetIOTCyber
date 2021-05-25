@@ -1,0 +1,16 @@
+<h1>Edit User</h1>
+
+<%= form_for( @user , url: user_path ) do |f| %>
+    <p><%= @user.username %></p>
+    <% if current_user.id == @user.id %>
+        <%= f.label :password, "New password" %>
+        <%= f.password_field :password %>
+        <%= f.label :password_confirmation, "New password confirmation" %>
+        <%= f.password_field :password_confirmation %>
+    <% end %>
+    <% if is_admin? %>
+        <%= f.label :admin_permissions, "admin permissions" %>
+        <%= f.check_box :admin_permissions %>
+    <% end %>
+    <%= f.submit "Save" %>
+<% end %>

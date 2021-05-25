@@ -20,11 +20,10 @@ class SessionsController < ApplicationController
 
   def logout
    session[:user_id] = nil
-   redirect_to '/welcome'
+   redirect_to '/welcome', notice: "Logged out"
   end
 
   def welcome
-
   end
 
   def page_requires_login
