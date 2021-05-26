@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
     if @user.update(user_params)
-      if !@user.initialized && !params[:password].nil?
+      if !@user.initialized && !params[:user][:password].blank?
         @user.initialized = true;
         @user.save
       end

@@ -1,7 +1,7 @@
 <h1>Sign Up</h1>
 <%= form_for @user do |f|%>
-  <%= f.label :username%>
-  <%= f.text_field :username%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
   <%
 =begin%>
  <%= f.label :password%>
@@ -10,5 +10,7 @@
   <%= f.password_field :password_confirmation%> 
 <%
 =end%>
+  <%= f.label :admin_permissions, "admin permissions" %>
+  <%= f.check_box :admin_permissions %>
   <%= f.submit %>
 <%end%>

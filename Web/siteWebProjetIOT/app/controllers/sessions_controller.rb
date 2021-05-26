@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, :welcome]
-  before_action :admin_authorized, only: [:page_requires_admin]
+  skip_before_action :change_password, only: [:logout]
 
   def new
   end
@@ -24,12 +24,6 @@ class SessionsController < ApplicationController
   end
 
   def welcome
-  end
-
-  def page_requires_login
-  end
-
-  def page_requires_admin
   end
 
   def messages
