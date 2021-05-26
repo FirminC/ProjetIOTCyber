@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
-        redirect_to '/welcome', notice: "Not Logged in" unless logged_in?
+        redirect_to root_path, notice: "Not Logged in" unless logged_in?
     end
 
     def admin_authorized
-        redirect_to '/welcome', notice: "Not Authorized" unless is_admin?
+        redirect_to root_path, notice: "Not Authorized" unless is_admin?
     end
 
     def change_password

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to '/welcome', notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
+    redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
   end
 
   def create
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    redirect_to '/welcome', notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
+    redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
     if @user.update(user_params)
       if !@user.initialized && !params[:password].nil?
         @user.initialized = true;
