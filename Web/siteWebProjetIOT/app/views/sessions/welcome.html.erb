@@ -11,3 +11,7 @@
 <% if is_admin? %>
     <%= button_to "Users", users_path, method: :get %>
 <% end %>
+
+<% if logged_in? %>
+    <%= button_to "Trucks", trucks_path, method: :get %>
+<% end %>

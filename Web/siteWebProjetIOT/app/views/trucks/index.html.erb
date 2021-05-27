@@ -1,0 +1,29 @@
+<h1>Liste des camions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trucks.each do |truck| %>
+      <tr>
+        <td><%= truck.hex_identifier %></td>
+        <td><%= truck.name %></td>
+        <td><%= truck.description %></td>
+        <td><%= link_to 'Show', truck %></td> 
+        <%
+=begin%>
+        <td><%= link_to 'Edit', edit_user_path(truck) %></td>
+        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+<%
+=end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

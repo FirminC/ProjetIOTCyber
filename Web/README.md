@@ -9,6 +9,10 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
     - page admin
     - page tous les camions
     - carte interactive
+    - pas 2 meme utilisateur
+
+Idées :
+    - Identifier le camion à l'aide d'un qrcode à scanner
 
 Implémenté :
     - Action cable

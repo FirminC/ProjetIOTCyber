@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_085123) do
+ActiveRecord::Schema.define(version: 2021_05_27_114756) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "truck_infos", force: :cascade do |t|
+    t.integer "truck_id"
+    t.boolean "is_stolen"
+    t.integer "fuel_level"
+    t.float "lat"
+    t.float "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["truck_id"], name: "index_truck_infos_on_truck_id"
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string "hex_identifier"
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

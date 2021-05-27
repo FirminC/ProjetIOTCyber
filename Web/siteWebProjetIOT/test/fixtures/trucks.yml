@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hex_identifier: MyString
+  name: MyString
+  description: MyText
+
+two:
+  hex_identifier: MyString
+  name: MyString
+  description: MyText

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: one
+  is_stolen: false
+  fuel_level: 
+  lat: 1.5
+  lon: 1.5
+
+two:
+  truck: two
+  is_stolen: false
+  fuel_level: 
+  lat: 1.5
+  lon: 1.5
