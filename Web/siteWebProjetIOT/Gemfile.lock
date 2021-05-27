@@ -157,6 +157,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    securerandom (0.1.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -210,6 +211,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rqrcode
   sass-rails (~> 5.0)
+  securerandom
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)

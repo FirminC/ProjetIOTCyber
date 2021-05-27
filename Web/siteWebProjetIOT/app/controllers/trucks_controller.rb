@@ -20,6 +20,29 @@ class TrucksController < ApplicationController
         )
     end
 
+    def new
+        @truck = Truck.new
+    end
+    
+    def create
+        @truck = Truck.new(truck_params)
+        randomhex = SecureRandom.hex(16) #Generate a 32 char long Hex number
+        
+        while Truck.exists?(hex_identifier: randomhex)
+            randomhex = SecureRandom.hex(16) #Generate a 32 char long Hex number
+            puts("whileloop")
+        end
+
+        @truck.hex_identifier = randomhex
+        
+        if @truck.save
+            redirect_to @truck, notice: "Truck created"
+        else
+            render :new, status: :unprocessable_entity
+        end
+    end
+    
+
     def edit
         #set_truck
     end

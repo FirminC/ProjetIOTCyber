@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #To generate QR Code
 gem 'rqrcode'
+
+#To generate random 32 characters long hexadecimal numbers
+gem 'securerandom'
