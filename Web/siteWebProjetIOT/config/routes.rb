@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 
-  resources :trucks, only: [:index, :show]
+  resources :trucks
   get 'messages', to: 'sessions#messages'
 
   mount ActionCable.server => '/cable'

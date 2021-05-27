@@ -1,7 +1,7 @@
 require 'rqrcode'
 
 class TrucksController < ApplicationController
-    before_action :set_truck, only: [:show, :edit]
+    before_action :set_truck, only: [:show, :edit, :update, :destroy]
     before_action :admin_authorized, only: [:edit, :update, :destory]
 
     def index
@@ -24,8 +24,26 @@ class TrucksController < ApplicationController
         #set_truck
     end
 
+    def update
+        #set_truck
+        if @truck.update(truck_params)
+            redirect_to trucks_path, notice: "Truck updated"
+        else
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        #set_truck
+        @truck.destroy
+    end
+
     private
     def set_truck
         @truck = Truck.find(params[:id])
+    end
+
+    def truck_params
+        params.require(:truck).permit(:name, :description)
     end
 end

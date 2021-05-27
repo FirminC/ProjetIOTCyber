@@ -1,0 +1,9 @@
+<h1>Edit Truck</h1>
+
+<%= form_for( @truck, url: truck_path) do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+    <%= f.submit "Save" %>
+<% end %>

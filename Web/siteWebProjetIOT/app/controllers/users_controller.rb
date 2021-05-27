@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    #set_user
     redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
   end
 
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    #set_user
     redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
     if @user.update(user_params)
       if !@user.initialized && !params[:user][:password].blank?
@@ -39,6 +41,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    #set_user
     admins = User.where(:admin_permissions => true)
     if !(admins.length == 1 and @user == admins.last)
       @user.destroy

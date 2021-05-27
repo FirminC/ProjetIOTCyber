@@ -1,5 +1,12 @@
 <h1>Liste des camions</h1>
 
+<%= link_to "Home Page", root_path %>
+<%
+=begin%>
+ <%= link_to "Add Truck", new_truck_path %> 
+<%
+=end%>
+
 <table>
   <thead>
     <tr>
@@ -17,12 +24,8 @@
         <td><%= truck.name %></td>
         <td><%= truck.description %></td>
         <td><%= link_to 'Show', truck %></td> 
-        <%
-=begin%>
-        <td><%= link_to 'Edit', edit_user_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-<%
-=end%>
+        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
+        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
