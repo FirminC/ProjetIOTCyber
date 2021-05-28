@@ -1,6 +1,8 @@
 require 'rqrcode'
 
 class TrucksController < ApplicationController
+    skip_before_action :authorized, only: [:addTruckInfo]
+    skip_before_action :verify_authenticity_token, only: [:addTruckInfo]
     before_action :set_truck, only: [:show, :edit, :update, :destroy]
     before_action :admin_authorized, only: [:edit, :update, :destory]
 
@@ -62,6 +64,28 @@ class TrucksController < ApplicationController
         redirect_to trucks_path, notice: "Truck was succesfully destroyed"
     end
 
+    def addTruckInfo
+        if request.get?
+            render :json => {:description => "API endpoint to add data from trucks"}
+        else 
+            if truck_infos_params[:hex_identifier]
+                if truck = Truck.find_by(hex_identifier: truck_infos_params[:hex_identifier])
+                    if truck.truck_infos.create(truck_infos_params.permit(:is_stolen, :fuel_level, :lat, :lon))
+                        json = truck.to_json(only: [:id, :hex_identifier, :name], methods: :lastTruckMapInfo)
+                        ActionCable.server.broadcast('messages_channel', message: json)
+                        render :json => {:created => true}
+                    else
+                        render :json => {:status => "Internal server Error"}, status: :internal_server_error
+                    end
+                else
+                    render :json => {:status => "Identifier not recognized"}, status: :bad_request
+                end
+            else
+                render :json => {:status => "Not authorized"}, status: :unauthorized
+            end
+        end
+    end
+
     private
     def set_truck
         @truck = Truck.find(params[:id])
@@ -69,5 +93,9 @@ class TrucksController < ApplicationController
 
     def truck_params
         params.require(:truck).permit(:name, :description)
+    end
+
+    def truck_infos_params
+        params.permit(:hex_identifier, :is_stolen, :fuel_level, :lat, :lon)
     end
 end

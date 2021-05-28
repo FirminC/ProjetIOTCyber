@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 
   resources :trucks #index, show, new, edit, create, update, destroy
-  get 'messages', to: 'sessions#messages'
+
+  get 'api/addTruckInfo', to: 'trucks#addTruckInfo'
+  post 'api/addTruckInfo', to: 'trucks#addTruckInfo'
 
   mount ActionCable.server => '/cable'
 end

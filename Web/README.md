@@ -9,6 +9,7 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
     - page admin
     - pas 2 meme utilisateur
     - Ajouter les camions sur la carte meme s'ils n'y étaient pas avant
+    - Admin par défaut lors de l'installation
 
 Implémenté :
     - Action cable
