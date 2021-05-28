@@ -11,14 +11,12 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
     - carte interactive
     - pas 2 meme utilisateur
 
-Idées :
-    - Identifier le camion à l'aide d'un qrcode à scanner
-
 Implémenté :
     - Action cable
     - utilisateur
     - gérer les utilisateurs
     - fonction de changement de mot de passe à la premiere connexion
     - Impossibilité de supprimer le dernier admin
+    - Identifier le camion à l'aide d'un qrcode à scanner
 
 Procédure d'installation :

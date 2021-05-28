@@ -59,6 +59,7 @@ class TrucksController < ApplicationController
     def destroy
         #set_truck
         @truck.destroy
+        redirect_to trucks_path, notice: "Truck was succesfully destroyed"
     end
 
     private

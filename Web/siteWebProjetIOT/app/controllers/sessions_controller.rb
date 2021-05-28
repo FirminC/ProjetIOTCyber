@@ -24,6 +24,8 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    @trucks = Truck.all
+    @json = @trucks.to_json(only: [:id, :hex_identifier, :name], methods: :lastTruckMapInfo)
   end
 
   def messages
