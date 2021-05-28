@@ -12,10 +12,9 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   disconnected: function() {
     console.log("Disconnected from the WebSocket");
   },
-  received: function(data) {
-    var p = document.createElement("p")
-    p.innerHTML = data.message;
-    document.getElementById("js-messages").appendChild(p)
+  received: function(jsonString) {
+    console.log("Received data: \n" + jsonString.message);
+    updateMap(jsonString.message);
   },
   speak: function(message) {
     this.perform('speak', { "message": message });

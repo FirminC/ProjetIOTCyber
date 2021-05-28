@@ -7,9 +7,8 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
 
 À implémenter :
     - page admin
-    - page tous les camions
-    - carte interactive
     - pas 2 meme utilisateur
+    - Ajouter les camions sur la carte meme s'ils n'y étaient pas avant
 
 Implémenté :
     - Action cable
@@ -18,5 +17,7 @@ Implémenté :
     - fonction de changement de mot de passe à la premiere connexion
     - Impossibilité de supprimer le dernier admin
     - Identifier le camion à l'aide d'un qrcode à scanner
+    - carte intéractive
+    - page tous les camions
 
 Procédure d'installation :
