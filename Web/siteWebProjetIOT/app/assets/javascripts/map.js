@@ -1,8 +1,8 @@
 var macarte = null;
 var trucks = null;
 
-function initMap(){
-    if(!document.getElementById("mapid")){
+function initMap() {
+    if (!document.getElementById("mapid")) {
         return
     }
     var mapCenter = [46.967329, 2.573059];
@@ -18,29 +18,47 @@ function initMap(){
 
     for (const truckNumber in trucksWithInfo) {
         const truck = trucksWithInfo[truckNumber];
-        if (truck.lastTruckMapInfo){
-            var truckMarker = L.marker([truck.lastTruckMapInfo.lat, truck.lastTruckMapInfo.lon], {hex_identifier: truck.hex_identifier})
+        if (truck.lastTruckMapInfo) {
+            var truckMarker = L.marker([truck.lastTruckMapInfo.lat, truck.lastTruckMapInfo.lon], { hex_identifier: truck.hex_identifier })
             truckMarker.addTo(trucks);
-            truckMarker.bindPopup('<a href="/trucks/'+ truck.id +'">' + truck.name + '</a><br>'+
+            truckMarker.bindPopup('<a href="/trucks/' + truck.id + '">' + truck.name + '</a><br>' +
                 "Stolen: " + truck.lastTruckMapInfo.is_stolen + "<br>" +
-                "Fuel level: "+ truck.lastTruckMapInfo.fuel_level + "%"
+                "Fuel level: " + truck.lastTruckMapInfo.fuel_level + "%"
             )
         }
     }
 }
 
-function updateMap(element){
+function updateMap(element) {
+    if (!macarte) {
+        return
+    }
     var truckWithInfo = JSON.parse(element);
     var truckMarkers = trucks.getLayers();
+    var truckMapMarker = null;
+    if (truckWithInfo.delete) {
+        for (const truckNumber in truckMarkers) {
+            const truckMarker = truckMarkers[truckNumber];
+            if (truckMarker.options.hex_identifier == truckWithInfo.hex_identifier) {
+                truckMarker.remove();
+            }
+        }
+        return
+    }
     for (const truckNumber in truckMarkers) {
         const truckMarker = truckMarkers[truckNumber];
-        if(truckMarker.options.hex_identifier == truckWithInfo.hex_identifier){
-            truckInfo = truckWithInfo.lastTruckMapInfo;
-            truckMarker.setLatLng([truckInfo.lat, truckInfo.lon]);
-            truckMarker.setPopupContent('<a href="/trucks/'+ truckWithInfo.id +'">' + truckWithInfo.name + '</a><br>'+
-                "Stolen: " + truckInfo.is_stolen + "<br>" +
-                "Fuel level: "+ truckInfo.fuel_level + "%"
-            )
+        if (truckMarker.options.hex_identifier == truckWithInfo.hex_identifier) {
+            truckMapMarker = truckMarker;
         }
     }
+    if (!truckMapMarker) {
+        truckMapMarker = L.marker([0, 0], { hex_identifier: truckWithInfo.hex_identifier });
+        truckMapMarker.addTo(trucks);
+    }
+    truckInfo = truckWithInfo.lastTruckMapInfo;
+    truckMapMarker.setLatLng([truckInfo.lat, truckInfo.lon]);
+    truckMapMarker.setPopupContent('<a href="/trucks/' + truckWithInfo.id + '">' + truckWithInfo.name + '</a><br>' +
+        "Stolen: " + truckInfo.is_stolen + "<br>" +
+        "Fuel level: " + truckInfo.fuel_level + "%"
+    );
 }

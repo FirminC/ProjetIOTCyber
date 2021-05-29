@@ -1,0 +1,64 @@
+<h1>Test api</h1>
+<p>Angers: <br>
+    lat: 47.4739884, lon: -0.5515588 
+</p>
+<p>Paris: <br>
+    lat: 48.862725, lon: 2.287592
+</p>
+<form onsubmit=" startTransmission(); return false;">
+    <label for="identifier">Hex identifier</label>
+    <input type="text" name="identifier" id="identifier" required>
+    <label for="latinit">Latitude initiale</label>
+    <input type="number" name="latinit" id="latinit" step="0.0000001" value="47.4739884" required>
+    <label for="loninit">Longitude initiale</label>
+    <input type="number" name="loninit" id="loninit" step="0.0000001" value="-0.5515588" required>
+    <label for="latfin">Latitude finale</label>
+    <input type="number" name="latfin" id="latfin" step="0.0000001" value="48.862725" required>
+    <label for="lonfin">Longitude finale</label>
+    <input type="number" name="lonfin" id="lonfin" step="0.0000001" value="2.287592" required>
+    <br>
+    <label for="tempsTot">Temps total en seconde</label>
+    <input type="number" name="tempsTot" id="tempsTot" required>
+    <label for="nbrInterval">Nombre de point intermédiaire</label>
+    <input type="number" name="nbrInterval" id="nbrInterval" required>
+    <input type="submit" value="Start">
+</form>
+<p>Output :</p>
+<div id="output">
+
+</div>
+<script>
+    async function startTransmission(){
+        var identifier = document.getElementById("identifier").value;
+        var output = document.getElementById("output");
+        var nbrPoint = parseInt(document.getElementById("nbrInterval").value);
+        var totalTime = parseInt(document.getElementById("tempsTot").value);
+        var baseLatitude = parseFloat(document.getElementById("latinit").value);
+        var baseLongitude = parseFloat(document.getElementById("loninit").value);
+        var latStep = (parseFloat(document.getElementById("latfin").value - baseLatitude ))/nbrPoint;
+        var lonStep = (parseFloat(document.getElementById("lonfin").value - baseLongitude ))/nbrPoint;
+        for (let i = 0; i <= nbrPoint; i++) {
+            var formData = new FormData();
+            formData.append("hex_identifier", identifier);
+            formData.append("is_stolen", false);
+            formData.append("fuel_level", "80");
+            formData.append("lat", baseLatitude + latStep * i);
+            formData.append("lon", baseLongitude + lonStep * i);
+
+            fetch("/api/addTruckInfo", {
+                method: "POST",
+                body: formData})
+            .then(response => response.json())
+            .then(data => {
+                var p = document.createElement("p");
+                p.innerHTML = data.status;
+                output.appendChild(p);
+            });
+            await timeout((totalTime/nbrPoint)*1000);
+        }
+    }
+
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+</script>

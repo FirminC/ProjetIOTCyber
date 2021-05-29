@@ -28,7 +28,6 @@ class SessionsController < ApplicationController
     @json = @trucks.to_json(only: [:id, :hex_identifier, :name], methods: :lastTruckMapInfo)
   end
 
-  def messages
-    @messages = Message.all
+  def testApi
   end
 end

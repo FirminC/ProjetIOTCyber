@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'api/addTruckInfo', to: 'trucks#addTruckInfo'
   post 'api/addTruckInfo', to: 'trucks#addTruckInfo'
 
+  get 'testApi', to: 'sessions#testApi'
+
   mount ActionCable.server => '/cable'
 end

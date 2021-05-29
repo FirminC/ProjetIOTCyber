@@ -60,7 +60,10 @@ class TrucksController < ApplicationController
 
     def destroy
         #set_truck
+        json = @truck.as_json(only: [:hex_identifier]);
+        json["delete"] = true
         @truck.destroy
+        ActionCable.server.broadcast('messages_channel', message: json.to_json())
         redirect_to trucks_path, notice: "Truck was succesfully destroyed"
     end
 
@@ -73,7 +76,7 @@ class TrucksController < ApplicationController
                     if truck.truck_infos.create(truck_infos_params.permit(:is_stolen, :fuel_level, :lat, :lon))
                         json = truck.to_json(only: [:id, :hex_identifier, :name], methods: :lastTruckMapInfo)
                         ActionCable.server.broadcast('messages_channel', message: json)
-                        render :json => {:created => true}
+                        render :json => {:status => "Created"}
                     else
                         render :json => {:status => "Internal server Error"}, status: :internal_server_error
                     end

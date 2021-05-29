@@ -6,10 +6,10 @@ mdp :       ProjetIOT
 Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors de projet personnel et lors de stage en entreprise.
 
 À implémenter :
-    - page admin
     - pas 2 meme utilisateur
-    - Ajouter les camions sur la carte meme s'ils n'y étaient pas avant
+    - supprimer les camions de la carte lors de suppression de la bdd
     - Admin par défaut lors de l'installation
+    - Photo lors d'un vol
 
 Implémenté :
     - Action cable
@@ -20,5 +20,7 @@ Implémenté :
     - Identifier le camion à l'aide d'un qrcode à scanner
     - carte intéractive
     - page tous les camions
+    - Ajouter les camions sur la carte meme s'ils n'y étaient pas avant
+    - supprimer les camions de la carte lors de suppression de la bdd
 
 Procédure d'installation :
