@@ -7,7 +7,6 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
 
 À implémenter :
     - pas 2 meme utilisateur
-    - supprimer les camions de la carte lors de suppression de la bdd
     - Admin par défaut lors de l'installation
     - Photo lors d'un vol
 
