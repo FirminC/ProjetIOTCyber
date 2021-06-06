@@ -18,5 +18,8 @@ module SiteWebProjetIOT
 
     config.time_zone = 'Paris'
     config.assets.precompile += ["map.js"]
+
+    # Store file locally
+    config.active_storage.service = :local
   end
 end

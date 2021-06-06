@@ -9,6 +9,7 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
     - pas 2 meme utilisateur
     - Admin par défaut lors de l'installation
     - Photo lors d'un vol
+    - Alerte si vol
 
 Implémenté :
     - Action cable

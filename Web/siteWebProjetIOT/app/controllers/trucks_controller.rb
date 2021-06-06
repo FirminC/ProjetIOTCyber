@@ -73,7 +73,7 @@ class TrucksController < ApplicationController
         else 
             if truck_infos_params[:hex_identifier]
                 if truck = Truck.find_by(hex_identifier: truck_infos_params[:hex_identifier])
-                    if truck.truck_infos.create(truck_infos_params.permit(:is_stolen, :fuel_level, :lat, :lon))
+                    if truck.truck_infos.create(truck_infos_params.permit(:is_stolen, :fuel_level, :lat, :lon, images: []))
                         json = truck.to_json(only: [:id, :hex_identifier, :name], methods: :lastTruckMapInfo)
                         ActionCable.server.broadcast('messages_channel', message: json)
                         render :json => {:status => "Created"}
@@ -99,6 +99,6 @@ class TrucksController < ApplicationController
     end
 
     def truck_infos_params
-        params.permit(:hex_identifier, :is_stolen, :fuel_level, :lat, :lon)
+        params.permit(:hex_identifier, :is_stolen, :fuel_level, :lat, :lon, images: [])
     end
 end

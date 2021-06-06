@@ -16,6 +16,7 @@
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Created at</th>
+      <th>Images</th>
     </tr>
   </thead>
 
@@ -27,6 +28,11 @@
         <td><%= truckInfo.lat %></td>
         <td><%= truckInfo.lon %></td>
         <td><%= truckInfo.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <% truckInfo.images.each do |image| %>
+            <%= image_tag image, height: "200px" %>
+          <% end %>
+        </td>
     <% end %>
   </tbody>
 </table>
