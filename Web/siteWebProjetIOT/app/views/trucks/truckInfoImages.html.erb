@@ -2,10 +2,12 @@
 
 <%= link_to "Liste des infos", truck_path(@truck) %>
 
-<% if @truckinfoimages.attached? %> 
-    <% @truckinfoimages.each do |image| %>
-        <%= image_tag image, height: "300px" %>
+<div class="images">
+    <% if @truckinfoimages.attached? %> 
+        <% @truckinfoimages.each do |image| %>
+            <%= image_tag image, height: "300px" %>
+        <% end %>
+    <% else %>
+        <p>Pas d'images</p>
     <% end %>
-<% else %>
-    <p>Pas d'images</p>
-<% end %> 
+</div>

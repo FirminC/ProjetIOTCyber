@@ -7,7 +7,7 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
 
 À implémenter :
     - Admin par défaut lors de l'installation
-    - Alerte si vol
+    - Alerte visuelle si vol
 
 Implémenté :
     - Action cable

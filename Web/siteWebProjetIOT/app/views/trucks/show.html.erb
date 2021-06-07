@@ -1,10 +1,10 @@
 <h1><%= @truck.name %></h1>
 
+<%= link_to "Trucks", trucks_path %>
+
 <p>Identifiant : <%= @truck.hex_identifier %></p>
 <%= @qr.html_safe %>
 <p>Description : <%= @truck.description %></p>
-
-<%= link_to "Trucks", trucks_path %>
 
 <h2>Listes des évenements :</h2>
 
@@ -22,7 +22,7 @@
 
   <tbody>
     <% @truckInfos.each do |truckInfo| %>
-      <tr>
+      <tr <%= truckInfo.is_stolen ? "class=stolen" : "" %>>
         <td><%= truckInfo.is_stolen %></td>
         <td><%= truckInfo.fuel_level %>%</td>
         <td><%= truckInfo.lat %></td>
