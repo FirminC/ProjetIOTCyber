@@ -89,6 +89,11 @@ class TrucksController < ApplicationController
         end
     end
 
+    def truckInfoImages
+        @truck = Truck.find(params[:truck_id])
+        @truckinfoimages = @truck.truck_infos.find(params[:id]).images
+    end
+
     private
     def set_truck
         @truck = Truck.find(params[:id])

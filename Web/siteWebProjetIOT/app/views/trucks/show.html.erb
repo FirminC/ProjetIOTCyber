@@ -29,8 +29,10 @@
         <td><%= truckInfo.lon %></td>
         <td><%= truckInfo.created_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td>
-          <% truckInfo.images.each do |image| %>
-            <%= image_tag image, height: "200px" %>
+          <% if truckInfo.images.attached? %>
+            <%= link_to "Voir images", truck_images_path(truckInfo.truck_id, truckInfo) %>
+          <% else %>
+            Pas d'images
           <% end %>
         </td>
     <% end %>

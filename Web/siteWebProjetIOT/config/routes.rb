@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 
-  resources :trucks #index, show, new, edit, create, update, destroy
+  resources :trucks do #index, show, new, edit, create, update, destroy
+    get "truckInfoImages/:id", action: :truckInfoImages, as: 'images'
+  end
 
   get 'api/addTruckInfo', to: 'trucks#addTruckInfo'
   post 'api/addTruckInfo', to: 'trucks#addTruckInfo'
