@@ -8,7 +8,6 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
 À implémenter :
     - Admin par défaut lors de l'installation
     - Alerte si vol
-    - popup lors de l'ajout dynamique
 
 Implémenté :
     - Action cable
@@ -23,5 +22,6 @@ Implémenté :
     - supprimer les camions de la carte lors de suppression de la bdd
     - pas 2 meme utilisateur
     - Photo lors d'un vol
+    - popup lors de l'ajout dynamique
 
 Procédure d'installation :
