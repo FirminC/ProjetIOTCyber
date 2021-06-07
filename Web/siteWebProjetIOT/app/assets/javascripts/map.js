@@ -53,6 +53,7 @@ function updateMap(element) {
     }
     if (!truckMapMarker) {
         truckMapMarker = L.marker([0, 0], { hex_identifier: truckWithInfo.hex_identifier });
+        truckMapMarker.bindPopup("");
         truckMapMarker.addTo(trucks);
     }
     truckInfo = truckWithInfo.lastTruckMapInfo;

@@ -50,9 +50,13 @@
                 body: formData})
             .then(response => response.json())
             .then(data => {
-                var p = document.createElement("p");
-                p.innerHTML = data.status;
-                output.appendChild(p);
+                // var p = document.createElement("p");
+                // p.innerHTML = data.status;
+                // output.appendChild(p);
+                var t = document.createTextNode(data.status);
+                output.appendChild(t);
+                var br = document.createElement("br");
+                output.appendChild(br);
             });
             await timeout((totalTime/nbrPoint)*1000);
         }
