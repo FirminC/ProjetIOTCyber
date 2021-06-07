@@ -19,10 +19,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.password_digest = BCrypt::Password.create("TemporaryPassword")
-    if @user.save
-      redirect_to users_path, notice: "User created"
+    if !User.find_by_username(@user.username) 
+      if @user.save
+        redirect_to users_path, notice: "User created"
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      flash.now[:notice] = "User already exists"
+      render :new
     end
   end
 
@@ -31,7 +36,7 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
     if @user.update(user_params)
       if !@user.initialized && !params[:user][:password].blank?
-        @user.initialized = true;
+        @user.initialized = true
         @user.save
       end
       redirect_to users_path, notice: "User updated"
