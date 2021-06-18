@@ -14,6 +14,7 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   },
   received: function(jsonString) {
     updateMap(jsonString.message);
+    updateTruckToVisualAlert(jsonString.message);
   },
   speak: function(message) {
     this.perform('speak', { "message": message });

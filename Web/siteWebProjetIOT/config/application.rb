@@ -17,7 +17,7 @@ module SiteWebProjetIOT
     # the framework and any gems in your application.
 
     config.time_zone = 'Paris'
-    config.assets.precompile += ["map.js"]
+    config.assets.precompile += ["map.js", "visual_alert.js"]
 
     # Store file locally
     config.active_storage.service = :local

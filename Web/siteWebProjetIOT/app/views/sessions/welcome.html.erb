@@ -4,23 +4,37 @@
     <p>You are Logged In, <%= current_user.username %></p>
 
     <%= link_to "Logout", logout_path %>
-<% else %>
-    <%= link_to "Login", login_path %>
-<%end%>
 
-<% if is_admin? %>
-    <%= link_to "Users", users_path %>
-<% end %>
+    <% if is_admin? %>
+        <%= link_to "Users", users_path %>
+    <% end %>
 
-<% if logged_in? %>
     <%= link_to "Trucks", trucks_path %>
 
     <% content_for :head do %>
         <%= javascript_include_tag "map", "data-turbolinks-track": "reload" %>
+        <%= javascript_include_tag "visual_alert", "data-turbolinks-track": "reload" %>
     <% end %>
 
     <div id="mapid"></div>
+
+    <div id="stolen_trucks">
+        <% @trucks.each do |truck| %>
+            <% if truck.truck_infos.last.is_stolen == true %>
+                <div class="truck" data-truck_hex="<%= truck.hex_identifier %>">
+                    <p>
+                        Le camion <%= truck.name %> est en train de perdre du carburant.<br>
+                        Il reste actuellement <%= truck.truck_infos.last.fuel_level %>% de carburant.<br>
+                        Pour plus d'inforation, cliquer <%= link_to "ici", truck %>.
+                    </p>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
     <script>
         var trucksWithInfo = JSON.parse('<%= raw @json %>');
     </script>
-<% end %>
+<% else %>
+    <%= link_to "Login", login_path %>
+<%end%>

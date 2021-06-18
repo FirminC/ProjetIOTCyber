@@ -1,7 +1,7 @@
 # Partie Web du ProjetIOT
 Mot de passe rasp web :
 login :     pi
-mdp :       ProjetIOT
+mdp :       ProjetIOTCyber
 
 Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors de projet personnel et lors de stage en entreprise.
 
@@ -25,3 +25,18 @@ Implémenté :
     - popup lors de l'ajout dynamique
 
 Procédure d'installation :
+
+Installation de RVM, pour gérer les version de Ruby :
+
+    gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    \curl -sSL https://get.rvm.io | bash
+    source ~/.rvm/scripts/rvm
+
+Installation de Ruby version 2.7.2 pour le projet (peut etre assez long en fonction du matériel)
+
+    rvm install -v 2.7.2
+
+Installation de NodeJS
+
+    sudo apt update
+    sudo apt install nodejs
