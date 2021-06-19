@@ -5,7 +5,7 @@ function updateTruckToVisualAlert(element){
     }
     var list = document.getElementsByClassName("truck");
     var HTMLElement = null;
-    for (let i = 0; i < list.length; i++) {
+    for (var i = 0; i < list.length; i++) {
         if(list[i].getAttribute("data-truck_hex") == truckToUpdate.hex_identifier){
             HTMLElement = list[i];
             console.log(HTMLElement)
