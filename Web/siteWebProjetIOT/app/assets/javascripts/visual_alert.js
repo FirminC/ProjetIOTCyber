@@ -34,11 +34,11 @@ function updateTruckToVisualAlert(element){
 
 function generatePElement(truck){
     var p = document.createElement("p");
-    var t = document.createTextNode("Le camion "+ truck.name + " est en train de perdre du carburant.");
+    var t = document.createTextNode("Nom du camion : "+ truck.name);
     p.appendChild(t);
     var br = document.createElement("br");
     p.appendChild(br);
-    t = document.createTextNode("Il reste actuellement " + truck.lastTruckMapInfo.fuel_level + "% de carburant.");
+    t = document.createTextNode("Niveau de carburant : " + truck.lastTruckMapInfo.fuel_level + "%");
     p.appendChild(t);
     br = document.createElement("br");
     p.appendChild(br);
