@@ -7,7 +7,6 @@ Utilisation de RubyOnRails car Firmin a déjà travaillé dessus auparavant lors
 
 À implémenter :
     - Admin par défaut lors de l'installation
-    - Alerte visuelle si vol
 
 Implémenté :
     - Action cable
@@ -23,6 +22,7 @@ Implémenté :
     - pas 2 meme utilisateur
     - Photo lors d'un vol
     - popup lors de l'ajout dynamique
+    - Alerte visuelle si vol
 
 Procédure d'installation :
 

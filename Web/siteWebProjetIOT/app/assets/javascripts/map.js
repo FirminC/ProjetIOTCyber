@@ -16,8 +16,8 @@ function initMap() {
         maxZoom: 20,
     }).addTo(macarte);
 
-    for (const truckNumber in trucksWithInfo) {
-        const truck = trucksWithInfo[truckNumber];
+    for (var truckNumber in trucksWithInfo) {
+        var truck = trucksWithInfo[truckNumber];
         if (truck.lastTruckMapInfo) {
             var truckMarker = L.marker([truck.lastTruckMapInfo.lat, truck.lastTruckMapInfo.lon], { hex_identifier: truck.hex_identifier })
             truckMarker.addTo(trucks);
@@ -37,16 +37,16 @@ function updateMap(element) {
     var truckMarkers = trucks.getLayers();
     var truckMapMarker = null;
     if (truckWithInfo.delete) {
-        for (const truckNumber in truckMarkers) {
-            const truckMarker = truckMarkers[truckNumber];
+        for (var truckNumber in truckMarkers) {
+            var truckMarker = truckMarkers[truckNumber];
             if (truckMarker.options.hex_identifier == truckWithInfo.hex_identifier) {
                 truckMarker.remove();
             }
         }
         return
     }
-    for (const truckNumber in truckMarkers) {
-        const truckMarker = truckMarkers[truckNumber];
+    for (var truckNumber in truckMarkers) {
+        var truckMarker = truckMarkers[truckNumber];
         if (truckMarker.options.hex_identifier == truckWithInfo.hex_identifier) {
             truckMapMarker = truckMarker;
         }
