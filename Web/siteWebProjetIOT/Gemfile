@@ -66,6 +66,3 @@ gem 'rqrcode'
 
 #To generate random 32 characters long hexadecimal numbers
 gem 'securerandom'
-
-#to deploy on raspberry with a redis server
-gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
