@@ -14,6 +14,15 @@
  *= require_self
  */
 
+@font-face {
+    font-family: "SourceSansPro";
+    src: font-url("SourceSansPro/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+* {
+    font-family: SourceSansPro;
+}
+
 html, body{
     margin: 0;
 }

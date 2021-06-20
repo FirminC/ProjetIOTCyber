@@ -18,7 +18,8 @@ class TrucksController < ApplicationController
             color: '000',
             shape_rendering: 'crispEdges',
             module_size: 6,
-            standalone: true
+            standalone: true,
+            viewbox: true
         )
     end
 

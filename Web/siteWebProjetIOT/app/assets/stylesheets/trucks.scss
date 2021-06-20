@@ -20,3 +20,21 @@
         background-color: lightgray;
     }
 }
+
+.flex{
+    display: flex;
+    flex-direction: row;
+
+    .left{
+        flex: 3;
+    }
+
+    .right{
+        flex: 1;
+        text-align: center;
+
+        svg{
+            max-height: 30vh;
+        }
+    }
+}

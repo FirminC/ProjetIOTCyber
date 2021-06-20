@@ -1,10 +1,15 @@
 <h1><%= @truck.name %></h1>
 
-<%= link_to "Trucks", trucks_path %>
-
-<p>Identifiant : <%= @truck.hex_identifier %></p>
-<%= @qr.html_safe %>
-<p>Description : <%= @truck.description %></p>
+<div class="flex">
+  <div class="left">
+    <p>Identifiant : <%= @truck.hex_identifier %></p>
+    <p>Description : <br><%= @truck.description %></p>
+  </div>
+  <div class="right">
+    <p>QR code à scanner par l'application du camion :</p>
+    <%= @qr.html_safe %>
+  </div>
+</div>
 
 <h2>Listes des évenements :</h2>
 
