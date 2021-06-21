@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def edit
     #set_user
     redirect_to root_path, notice: "Not Authorized" unless logged_in? and (is_admin? or @user.id == current_user.id)
-    if current_user == @user 
+    if current_user == @user and !@user.initialized
       @otp_secret = ROTP::Base32.random
       @user.otp_secret = @otp_secret
       totp = ROTP::TOTP.new( @otp_secret, issuer: 'Safe-Truck' )
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_admin_params)
     @user.password_digest = BCrypt::Password.create("TemporaryPassword")
     if !User.find_by_username(@user.username) 
       if @user.save
