@@ -17,6 +17,22 @@
     }
 }
 
-svg{
-    max-height: 30vh;
+.Userflex{
+    display: flex;
+    flex-direction: row;
+
+    .Userleft{
+        flex: 3;
+    }
+
+    .Userright{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+
+        svg{
+            max-height: 30vh;
+        }
+    }
 }
