@@ -40,3 +40,6 @@ Installation de NodeJS
 
     sudo apt update
     sudo apt install nodejs
+
+    bundle install
+    rails s

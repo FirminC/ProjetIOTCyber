@@ -7,11 +7,16 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:username])
-      if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to root_path
-      else
-        redirect_to '/login'
+    if @user.initialized
+      totp = ROTP::TOTP.new(@user.otp_secret, issuer: 'Safe-Truck')
+      last_otp_at = totp.verify(params[:otp_attempt], after: @user.last_otp_at, drift_behind: 15)
+    end
+    if @user and @user.authenticate(params[:password]) and ( (@user.initialized and last_otp_at) or !@user.initialized)
+      @user.update(last_otp_at: last_otp_at)
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      redirect_to '/login'
     end
   end
 

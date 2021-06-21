@@ -69,3 +69,6 @@ gem 'securerandom'
 
 #Pour le déploiement
 gem "passenger"
+
+#Pour la double authentification
+gem 'rotp'

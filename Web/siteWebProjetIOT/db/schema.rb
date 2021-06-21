@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_214153) do
+ActiveRecord::Schema.define(version: 2021_06_21_185414) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_06_04_214153) do
     t.datetime "updated_at", null: false
     t.boolean "admin_permissions", default: false
     t.boolean "initialized", default: false
+    t.string "otp_secret"
+    t.integer "last_otp_at"
   end
 
 end

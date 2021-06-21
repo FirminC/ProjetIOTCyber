@@ -143,6 +143,7 @@ GEM
       ffi (~> 1.0)
     redis (4.2.5)
     regexp_parser (2.1.1)
+    rotp (6.2.0)
     rqrcode (2.0.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -213,6 +214,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.6)
   redis (~> 4.0)
+  rotp
   rqrcode
   sass-rails (~> 5.0)
   securerandom

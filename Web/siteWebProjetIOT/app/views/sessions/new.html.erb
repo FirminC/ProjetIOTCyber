@@ -4,5 +4,7 @@
    <%= text_field_tag :username %>
    <%= label_tag :password%>
    <%= password_field_tag :password%>
+   <%= label_tag :otp_attempt, "2FA code"%>
+   <%= text_field_tag :otp_attempt %>
    <%= submit_tag "Login"%>
 <%end%>
