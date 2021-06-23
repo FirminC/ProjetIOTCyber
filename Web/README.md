@@ -34,7 +34,7 @@ Installation de RVM, pour gérer les version de Ruby :
 
 Installation de Ruby version 2.7.2 pour le projet (peut etre assez long en fonction du matériel)
 
-    rvm install -v 2.7.2
+    rvm install 2.7.2
 
 Installation de NodeJS
 
