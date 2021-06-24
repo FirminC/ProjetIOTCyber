@@ -1,26 +1,3 @@
-# Bouchon connecté avec Raspberry Pi
-
-Pour installer le programme, suivez les étapes suivantes:
-
-
-Télécharger les fichiers disponibles sur GitHub.
-
-
-Mettre à jour le Raspberry Pi:
-
-    sudo apt update 
-    sudo apt upgrade 
-
-Installer les packages nécessaires pour le Bluetooth:
-
-    sudo apt install bluetooth libbluetooth-dev
-    sudo python3 -m pip install pybluez
-
-Lancer l'application en tapant executant la commande:
-
-    make run
-    
-    
    # Bouchon connecté avec Raspberry Pi
 Une petite description du projet
 
