@@ -21,7 +21,7 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 ### Installation automatique
 
-        make install
+    make install
         
 ### Installation manuelle
 
