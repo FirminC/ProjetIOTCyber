@@ -55,11 +55,6 @@ class SocketBluetooth:
         for i in range(5):
             tab_picture.append(self.getBlob())
 
-    # def getBlob(self, img):
-    #     with open("imageToSave.png", "wb") as fh:
-    #         fh.write(base64.decodebytes(img))
-    #     return str(fh)
-
     def send(self, message):
         try:
             self.client_socket.send((message+'/').encode('utf-8'))
