@@ -17,4 +17,5 @@ Installer les packages nécessaires pour le Bluetooth:
 Télécharger les fichiers disponibles sur GitHub.
 
 Lancer l'application en tapant executant la commande:
+
     make run
