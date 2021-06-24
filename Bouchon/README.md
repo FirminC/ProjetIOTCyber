@@ -17,3 +17,21 @@ Installer les packages nécessaires pour le Bluetooth:
 Télécharger les fichiers disponibles sur GitHub.
 
 Lancer l'application en tapant executant la commande make run
+
+Pour commencer
+Entrez ici les instructions pour bien débuter avec votre projet...
+
+Pré-requis
+Ce qu'il est requis pour commencer avec votre projet...
+
+Programme 1
+Programme 2
+etc...
+Installation
+Les étapes pour installer votre programme....
+
+Dites ce qu'il faut faire...
+
+exemple: Executez la commande telnet mapscii.me pour commencer ensuite [...]
+
+Ensuite vous pouvez montrer ce que vous obtenez au final...
