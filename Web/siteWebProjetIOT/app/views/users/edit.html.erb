@@ -18,7 +18,7 @@
         </div>
         <% if logged_in? and current_user == @user and !@user.initialized %>
             <div class="Userright">
-                <h3>2 Factor Authentication :</h3>
+                <h3>2 Factor Authentication (Google Authenticator ou Authy):</h3>
                 <%= @qr.html_safe %>
                 <%= label_tag  :otp_attempt, "Verify (enter a one-time password)" %>
                 <%= text_field_tag :otp_attempt %>
