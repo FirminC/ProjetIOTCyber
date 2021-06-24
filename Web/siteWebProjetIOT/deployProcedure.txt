@@ -3,5 +3,5 @@ git pull
 EDITOR="nano" rails credentials:edit
 
 rake sitemap:refresh
-bundle exec rake assets:precompile db:migrate RAILS_ENV=production
+bundle exec rake assets:precompile db:migrate db:seed RAILS_ENV=production
 sudo service apache2 reload

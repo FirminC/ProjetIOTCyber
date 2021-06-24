@@ -13,7 +13,7 @@
         <div id="stolen_trucks">
             <h3>Stolen Trucks</h3>
             <% @trucks.each do |truck| %>
-                <% if truck.truck_infos.last.is_stolen == true %>
+                <% if truck.truck_infos.last and truck.truck_infos.last.is_stolen == true %>
                     <div class="truck" data-truck_hex="<%= truck.hex_identifier %>">
                         <p>
                             Nom du camion : <%= truck.name %><br>
