@@ -61,6 +61,6 @@ Installer les packages nécessaires pour le Bluetooth:
     sudo python3 -m pip install pybluez
     
 ## Démarrage
- Lancer l'application en tapant executant la commande:
+ Lancer l'application en executant la commande:
 
     make run
