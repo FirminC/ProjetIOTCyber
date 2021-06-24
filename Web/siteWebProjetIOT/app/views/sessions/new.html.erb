@@ -5,6 +5,6 @@
    <%= label_tag :password%>
    <%= password_field_tag :password%>
    <%= label_tag :otp_attempt, "2FA code"%>
-   <%= text_field_tag :otp_attempt %>
+   <%= text_field_tag :otp_attempt, nil, autocomplete: 'off'%>
    <%= submit_tag "Login"%>
 <%end%>
