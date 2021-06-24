@@ -1,6 +1,4 @@
    # Bouchon connecté avec Raspberry Pi
-Une petite description du projet
-
 ## Pour commencer
 
 Télécharger les fichiers du projet
