@@ -1,11 +1,5 @@
 from socketBluetooth import SocketBluetooth
-# from socketBluetooth import SocketBluetooth
 from truck import GPIO, threading
-
-# import signal
-# def handler(sig, frame):
-#     server_socket.stopServer()
-# signal.signal(signal.SIGINT, handler)
 
 server_socket = SocketBluetooth()
 
